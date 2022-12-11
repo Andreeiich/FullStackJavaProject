@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+
+    <div class="label">
+        <p id ="label">HobbyModels<br> <span id="head" style=""> Магазин масштабных моделей</span></p>
+    </div>
+</header>
+<div class="registrationForm">
+    <h3>Регистрация</h3>
+    <form method="post" th:action="@{/auth/registration}" th:object="${person}">
+        <div class="colRegistration">
+            <div class="row">
+                <!-- <label for="login">Введите логин: </label>-->
+                <input type="text"  th:field="*{login}" placeholder="Введите логин" name="username" id="login">
+                <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+            </div>
+            <br>
+            <div class="row">
+                <!-- <label for="password">Введите пароль: </label>-->
+                <input type="password" th:field="*{password}" placeholder="Введите пароль" name="password" id="password">
+                <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </div>
+            <br>
+            <div class="row">
+                <!--<label for="lastname">Введите фамилию: </label>-->
+                <input type="text" th:field="*{lastname}" placeholder="Введите фамилию" id="lastname">
+                <div style="color: red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+            </div>
+            <br>
+            <div class="row">
+                <!--<label for="firstname">Введите имя: </label>-->
+                <input type="text" th:field="*{firstname}" placeholder="Введите имя" id="firstname">
+                <div style="color: red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+            </div>
+            <br>
+            <div class="row">
+                <!--<label for="patronymic">Введите отчество: </label>-->
+                <input type="text" th:field="*{patronymic}" placeholder="Введите отчество" id="patronymic">
+            </div>
+            <br>
+            <div class="row">
+                <!-- <label for="email">Введите email: </label>-->
+                <input type="text" th:field="*{email}"  placeholder="Введите email" id="email">
+                <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+            <br>
+            <div class="row">
+                <!--<label for="phoneNumber">Введите номер телефона: </label>-->
+                <input type="text" th:field="*{phoneNumber}"  placeholder="Введите номер телефона" id="phoneNumber">
+                <div style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+            </div>
+            <br>
+        </div>
+
+        <button type="button" class="btn btn-secondary"> <input type="submit" value="Зарегистрироваться"class="btnRegistration"></button>
+    </form>
+</div>
+
+
+<footer>
+    <div class="footLabel">
+        <p id ="foot">HobbyModels</p>
+    </div>
+    <div>
+    </div>
+    <div class="footInfo">
+        <p>Все товарные знаки и логотипы являются исключительной собственностью их владельцев. Товарные знаки и логотипы воспроизведены для информации и исторической достоверности моделей. Их использование на сайте и на моделях не является рекламой и не преследует коммерческих целей.</p>
+    </div>
+</footer>
+</body>
+</html>

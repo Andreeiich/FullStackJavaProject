@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить статус заказа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="label">
+        <p id ="label">HobbyModels<br> <span id="head" style=""> Магазин масштабных моделей</span></p>
+    </div>
+</header>
+<h3>Редактирование статуса заказа</h3>
+<div class="menu">
+    <div class="registrationForm">
+<form th:method="POST" th:action="@{/admin/order/edit/{id}(id=${order.getId()})}" th:object="${order}">
+    <br>
+    <div class="colRegistration">
+        <div class="row">
+    <h3>Изменение статуса заказа:</h3>
+    <h3 th:text="'Заказ № ' + ${order.getNumber_of_order()}"></h3>
+    <p th:text="'Статус: ' + ${order.getStatus()}"></p>
+    <p th:text ="'Клиент: '+ ${order.getPerson()}"></p>
+    <br>
+    <br>
+    <label>Укажите новый статус заказа: </label>
+    <br>
+    <br>
+        </div>
+            <div class="row">
+    <input type="radio" id="status_accepted" name="status" value=0>
+    <label for="status_accepted">Присвоить статус "принят"</label>
+            </div>
+    <br>
+    <br>
+                <div class="row">
+    <input type="radio" id="status_framed" name="status" value=1>
+    <label for="status_framed">Присвоить статус "оформлен"</label>
+                </div>
+    <br>
+    <br>
+                    <div class="row">
+    <input type="radio" id="status_processed" name="status" value=2>
+    <label for="status_processed">Присвоить статус "обрабатывается"</label>
+                    </div>
+    <br>
+    <br>
+                        <div class="row">
+    <input type="radio" id="status_received" name="status" value=3>
+    <label for="status_received">Присвоить статус "получен заказчиком"</label>
+                        </div>
+    <br>
+    <br>
+                            <div class="row">
+    <input type="radio" id="status_canceled" name="status" value=4>
+    <label for="status_canceled">Присвоить статус "отменен"</label>
+                            </div>
+    <br>
+    <br>
+    </div>
+
+    <button type="button" class="btn btn-secondary"> <input type="submit" value="Редактировать"class="btnRegistration"></button>
+
+</form>
+    </div>
+</div>
+<footer>
+    <div class="footLabel">
+        <p id ="foot">HobbyModels</p>
+    </div>
+    <div>
+
+
+    </div>
+    <div class="footInfo">
+        <p>Все товарные знаки и логотипы являются исключительной собственностью их владельцев. Товарные знаки и логотипы воспроизведены для информации и исторической достоверности моделей. Их использование на сайте и на моделях не является рекламой и не преследует коммерческих целей.</p>
+    </div>
+
+</footer>
+</body>
+</html>

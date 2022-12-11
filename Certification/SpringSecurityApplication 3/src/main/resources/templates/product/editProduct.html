@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование товара</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+
+    <div class="label">
+        <p id ="label">HobbyModels<br> <span id="head" style=""> Магазин масштабных моделей</span></p>
+    </div>
+</header>
+<h3>Редактирование товара</h3>
+<form th:method="POST" th:action="@{/admin/product/edit/{id}(id=${editProduct.getId()})}" th:object="${editProduct}" enctype="multipart/form-data">
+    <label for="title">Введите наименование: </label>
+    <input type="text" th:field="*{title}" placeholder="Наименование" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+    <br>
+    <br>
+    <label for="description">Введите описание: </label>
+    <textarea th:field="*{description}" placeholder="Описание" id="description"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    <br>
+    <br>
+    <label for="price">Введите цену: </label>
+    <input type="number" th:field="*{price}" min="1" step="0.00" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+    <br>
+    <br>
+    <label for="warehouse">Введите информацию о складе: </label>
+    <input type="text" th:field="*{warehouse}" placeholder="Склад" id="warehouse">
+    <div style="color: red" th:if="${#fields.hasErrors('warehouse')}" th:errors="*{warehouse}"></div>
+    <br>
+    <br>
+    <label for="category">Выберите категорию масштаба товара: </label>
+    <select name="category" th:field="*{category}" id="category">
+        <div th:each="element : ${category}">
+            <option th:text="${element.getName()}" th:value="${element.getId()}"></option>
+        </div>
+    </select>
+    <br>
+    <br>
+    <label for="seller">Введите данные о продавце: </label>
+    <textarea th:field="*{seller}" placeholder="Продавец" id="seller"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
+    <br>
+    <br>
+    <!-- Изменяем фото-->
+    <div th:each="img : ${editProduct.getImageList()}">
+        <img th:src="'/img/' + ${img.getFileName()}" width="300px">
+    </div>
+   <h3>Замените нужные фото или добавьте новые</h3>
+
+    <input type="file" name="file_one" class="btnRegistration">
+       <input type="file" name="file_two"class="btnRegistration">
+           <input type="file" name="file_three"class="btnRegistration">
+               <input type="file" name="file_four"class="btnRegistration">
+                   <input type="file" name="file_five"class="btnRegistration">
+    <br>
+    <br>
+    <br>
+    <h3>Наличие первого фото обязательно, его можно заменить, выбрав фото. Выберите фото для удаления:</h3>
+    <br>
+    <input type="radio" id="second" name="second" value="1">
+    <label for="second">Удалить второе фото</label>
+    <br>
+    <br>
+    <input type="radio" id="third" name="third" value="2">
+    <label for="third">Удалить третье фото</label>
+    <br>
+    <br>
+    <input type="radio" id="fourth" name="fourth" value="3">
+    <label for="fourth">Удалить четвертое фото</label>
+    <br>
+    <br>
+    <input type="radio" id="fifth" name="fifth" value="4">
+    <label for="fifth">Удалить пятое фото</label>
+    <br>
+    <hr>
+    <button type="button" class="btn btn-secondary"><input type="submit" value="Редактировать"class="btnRegistration"></button>
+</form>
+<footer>
+    <div class="footLabel">
+        <p id ="foot">HobbyModels</p>
+    </div>
+    <div>
+
+
+    </div>
+    <div class="footInfo">
+        <p>Все товарные знаки и логотипы являются исключительной собственностью их владельцев. Товарные знаки и логотипы воспроизведены для информации и исторической достоверности моделей. Их использование на сайте и на моделях не является рекламой и не преследует коммерческих целей.</p>
+    </div>
+
+</footer>
+</body>
+</html>

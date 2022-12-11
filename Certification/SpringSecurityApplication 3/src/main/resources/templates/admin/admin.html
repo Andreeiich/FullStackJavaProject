@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ панель</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="label">
+        <p id ="label">HobbyModels<br> <span id="head" style=""> Магазин масштабных моделей</span></p>
+    </div>
+</header>
+<h3>Личный кабинет администратора</h3>
+<div class="menu">
+<form th:method="POST" th:action="@{/logout}">
+    <button type="button" class="btn btn-secondary"> <input type="submit" value="Выйти из личного кабинета"class="btnRegistration"></button>
+</form>
+<hr>
+<br>
+<a href="/admin/product/add">Добавить товар</a>
+<hr>
+<br>
+<a href="/admin/changePassword">Изменить пароль</a>
+<hr>
+<br>
+<a href="/admin/users">Работа с пользователями</a>
+<hr>
+<br>
+<a href="/admin/orders">Работа с заказами</a>
+<hr>
+<br>
+</div>
+
+
+    <h3>Каталог товаров: </h3>
+    <hr>
+    <br>
+<div class="goods">
+<div th:each="product : ${products}" class="curgoods" >
+    <br>
+    <p>Просмотреть полное объявление</p>
+    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"> </a>
+    <br>
+    <br>
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" class = "imageGoods" width="300px">
+    <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+    <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+    <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+    <p th:text="'Категория товара: ' + ${product.getCategory().getName()}"></p>
+    <a th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактировать товар</a>
+    <a th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">Удалить товар</a>
+    <hr>
+</div>
+</div>
+<footer>
+    <div class="footLabel">
+        <p id ="foot">HobbyModels</p>
+    </div>
+    <div>
+    </div>
+    <div class="footInfo">
+        <p>Все товарные знаки и логотипы являются исключительной собственностью их владельцев. Товарные знаки и логотипы воспроизведены для информации и исторической достоверности моделей. Их использование на сайте и на моделях не является рекламой и не преследует коммерческих целей.</p>
+    </div>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,231 @@
+body{
+    background: #ffffff;
+    height: 100%;
+}
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    flex: 1 1 auto;
+}
+
+header{
+    background-color: #464a4c;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 10px;
+}
+
+footer {
+    /*position: absolute;*/
+     position: relative;
+    background-color: #464a4c;
+    display: grid;
+
+    grid-template-row: repeat(2,1fr);
+    margin-bottom: -100px;
+    /*Минус Высота футера*/
+    height: 100px;
+    /*Высота футера*/
+
+}
+.main{
+    padding-bottom: 100px;
+    margin-bottom: 150px;
+}
+
+#head{
+    font-size: 13px;
+    color: white;
+    font-family: Times New Roman, serif;
+
+}
+#label{
+  color: #fc3a60;
+  font-style: italic;
+    font-size: 25px;
+}
+.label{
+    margin: 10px;
+    padding: 10px;
+    grid-column-start: 1;
+}
+.auth{
+    grid-column-start: 2;
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    text-align: right;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+#butAuth{
+    text-decoration: none;
+    border-radius:10px;
+    color:black;
+    padding: 5px;
+    background: firebrick;
+    width: 100px;
+    font-family: Times New Roman, serif;
+    font-size: 20px;
+    font-style: italic ;
+    font-weight: bold;
+}
+#butAuth:hover{
+    color: rgb(245, 37, 9);
+    background-color: rgb(28, 34, 37);
+    padding: 5px;
+    border-radius:10px;
+    font-family: Times New Roman, serif;
+    font-size: 20px;
+    font-style: italic ;
+    font-weight: bold;
+}
+
+.footLabel{
+    grid-row-start: 1;
+    color:  #fc3a60;
+    font-style: italic;
+    padding-left: 15px;
+    font-size: 25px;
+}
+.footInfo{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    grid-row-start: 2;
+    text-align:center;
+    font-size: 13px;
+}
+
+.goods{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: 5px 5px 10px 5px;
+
+}
+
+.goodsSearch{
+    display: grid;
+    grid-template-columns: repeat(3,2fr);
+    margin: 5px 5px 10px 5px;
+}
+.curgoods{
+    border: solid #464a4c 2px;
+    padding: 5px;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    border-radius: 10px;
+    box-shadow:  10px 5px 5px #464a4c;
+    width: 330px;
+
+}
+.imageGoods{
+    width: 300px;
+    height: 200px;
+    align-items: center;
+}
+.searchZone{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+   /* margin: 5px 5px 10px 5px;*/
+    border: solid #464a4c 1px;
+}
+
+.search{
+    width: 600px;
+    height: 410px;
+    align-items: center;
+    padding: 10px;
+    margin-left: 100px;
+    /*background: #989792;*/
+    /*background: ;*/
+    font-weight: bolder;
+    /*color: white;*/
+    color: #5c636a;
+    font-family: Times New Roman, serif;
+}
+.imgSearch{
+   /* display: block;*/
+    margin-right: 100px;
+    /*width: 600px;
+    height: 410px;*/
+    align-items: center;
+    padding-right: 50px;
+
+    text-align: center;
+}
+.btn{
+background: #5c636a;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-style: italic ;
+    font-weight: bold;
+}
+.btnRegistration{
+    border: none;
+    background: #5c636a;
+}
+a{
+    text-decoration: none;
+    color:white;
+    background: #678ea6;
+    border-radius: 3px;
+    size: auto;
+
+}
+a:hover{
+    color: midnightblue;
+    background-color: #5c636a;
+    padding: 5px;
+    border-radius:10px;
+
+}
+
+.mainOfPr{
+    margin: 5px;
+}
+
+
+
+
+.btn:hover{
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-style: italic ;
+    color: red;
+    box-shadow:  10px 5px 5px #464a4c;
+}
+
+.registrationForm{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+.input-group input-group-sm mb-3{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+.colRegistration{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu{
+    margin: 5px;
+    padding: 5px;
+}
